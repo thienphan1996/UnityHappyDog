@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class FinishLine : MonoBehaviour
 {
     [SerializeField] float delayLoadScene = 1f;
+    [SerializeField] AudioClip finishSfx;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -18,6 +19,8 @@ public class FinishLine : MonoBehaviour
 
     IEnumerator NextLevel()
     {
+        AudioSource.PlayClipAtPoint(finishSfx, Camera.main.transform.position);
+
         yield return new WaitForSecondsRealtime(delayLoadScene);
         var nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
 
@@ -27,5 +30,7 @@ public class FinishLine : MonoBehaviour
         }
 
         SceneManager.LoadScene(nextSceneIndex);
+
+        FindObjectOfType<PlayerSession>().UpdateLevel(nextSceneIndex);
     }
 }

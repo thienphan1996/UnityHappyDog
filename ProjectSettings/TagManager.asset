@@ -46,20 +46,20 @@ TagManager:
   - name: Background
     uniqueID: 1552507455
     locked: 0
+  - name: Enviroment
+    uniqueID: 2139114095
+    locked: 0
   - name: Tilemap
     uniqueID: 449093027
     locked: 0
   - name: Water
     uniqueID: 4249885833
     locked: 0
-  - name: Enviroment
-    uniqueID: 2139114095
+  - name: Interactables
+    uniqueID: 389708167
     locked: 0
   - name: Enemies
     uniqueID: 3390330727
-    locked: 0
-  - name: Interactables
-    uniqueID: 389708167
     locked: 0
   - name: Player
     uniqueID: 1145192429

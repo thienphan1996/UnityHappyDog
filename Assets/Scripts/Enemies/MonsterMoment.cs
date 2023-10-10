@@ -21,9 +21,11 @@ public class EnemyMoment : MonoBehaviour
         myRigidbody.velocity = new Vector2(moveSpeed, 0f);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         moveSpeed = -moveSpeed;
         transform.localScale = new Vector2(-transform.localScale.x, 1f);
+
+        Debug.Log(other.gameObject.tag);
     }
 }

@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D myRigidbody;
     Animator myAnimator;
     CapsuleCollider2D myCollider;
+    BoxCollider2D feetCollider;
     InputManager inputManager;
     bool canJump = false;
     bool isAlive = true;
@@ -29,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
         myAnimator = GetComponent<Animator>();
         myCollider = GetComponent<CapsuleCollider2D>();
         inputManager = GetComponent<InputManager>();
-        myRigidbody.velocity = new Vector2(10f, 10f);
+        feetCollider = GetComponent<BoxCollider2D>();
     }
 
     void Update()
@@ -43,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Die()
     {
-        if (myCollider.IsTouchingLayers(LayerMask.GetMask("Enemies")))
+        if (myCollider.IsTouchingLayers(LayerMask.GetMask("Enemies")) || feetCollider.IsTouchingLayers(LayerMask.GetMask("Enemies")))
         {
             isAlive = false;
             myAnimator.SetTrigger("Dead");
@@ -52,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(NewGame());
         }
 
-        if (myCollider.IsTouchingLayers(LayerMask.GetMask("Water")))
+        if (myCollider.IsTouchingLayers(LayerMask.GetMask("Water")) || feetCollider.IsTouchingLayers(LayerMask.GetMask("Enemies")))
         {
             isAlive = false;
             myAnimator.SetTrigger("Fall");
@@ -78,7 +79,6 @@ public class PlayerMovement : MonoBehaviour
 
             yield return new WaitForSecondsRealtime(2f);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
         }
     }
 
@@ -131,7 +131,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isAlive) { return; }
 
-        if (canJump)
+        if (feetCollider.IsTouchingLayers(LayerMask.GetMask("Platform")))
         {
             myRigidbody.velocity += new Vector2(0f, jumpSpeed);
             myAnimator.SetBool("isJumping", true);

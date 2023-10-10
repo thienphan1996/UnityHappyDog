@@ -7,9 +7,12 @@ public class PlayerSession : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI livesText;
     [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI levelText;
 
     private int score = 0;
     private int playerLives = 3;
+    private int playerLevel = 1;
+    public int PlayerLevel => playerLevel;
 
     private void Awake()
     {
@@ -24,10 +27,23 @@ public class PlayerSession : MonoBehaviour
         }
     }
 
+    public void UpdateLevel(int level)
+    {
+        playerLevel = level;
+
+        if (level == 0)
+        {
+            playerLevel = 1;
+        }
+
+        levelText.text = "Level " + playerLevel.ToString();
+    }
+
     private void Start()
     {
         livesText.text = playerLives.ToString();
         scoreText.text = score.ToString();
+        levelText.text = "Level " + playerLevel.ToString();
     }
 
     public void IncreaseScore(int scoreToAdd)
@@ -48,6 +64,7 @@ public class PlayerSession : MonoBehaviour
     {
         score = 0;
         playerLives = 3;
+        playerLevel = 1;
 
         livesText.text = playerLives.ToString();
         scoreText.text = score.ToString();
