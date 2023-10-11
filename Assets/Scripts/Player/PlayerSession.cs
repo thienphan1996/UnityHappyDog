@@ -37,6 +37,8 @@ public class PlayerSession : MonoBehaviour
         }
 
         levelText.text = "Level " + playerLevel.ToString();
+
+        FindObjectOfType<ScenePersist>().ResetScene();
     }
 
     private void Start()
@@ -54,7 +56,15 @@ public class PlayerSession : MonoBehaviour
 
     public int PlayerDeath()
     {
-        playerLives--;
+        if (playerLives > 0)
+        {
+            playerLives--;
+        }
+        else
+        {
+            playerLives = 0;
+        }
+
         livesText.text = playerLives.ToString();
 
         return playerLives;
@@ -62,11 +72,8 @@ public class PlayerSession : MonoBehaviour
 
     public void RestartGame()
     {
-        score = 0;
-        playerLives = 3;
-        playerLevel = 1;
+        Destroy(gameObject);
 
-        livesText.text = playerLives.ToString();
-        scoreText.text = score.ToString();
+        FindObjectOfType<ScenePersist>().ResetScene();
     }
 }

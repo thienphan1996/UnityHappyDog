@@ -37,6 +37,7 @@ public class Dashboard : MonoBehaviour
         if (playerLevel == 0)
         {
             playerLevel = 1;
+            playerSession.RestartGame();
         }
 
         SceneManager.LoadScene(playerLevel);

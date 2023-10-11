@@ -136,9 +136,9 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &1988808277959252662
 MonoBehaviour:
@@ -232,8 +232,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.09751606, y: -0.10376525}
-  m_Size: {x: 0.9626999, y: 1.46345}
+  m_Offset: {x: -0.09751606, y: -0.11980909}
+  m_Size: {x: 0.9626999, y: 1.458866}
   m_Direction: 0
 --- !u!82 &5478335526963863137
 AudioSource:
@@ -360,10 +360,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.09468317, y: -0.28488827}
+  m_Offset: {x: -0.06488752, y: -0.8028751}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -374,5 +374,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.75950336, y: 1.1255112}
+  m_Size: {x: 0.48904896, y: 0.0895375}
   m_EdgeRadius: 0

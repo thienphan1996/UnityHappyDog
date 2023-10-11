@@ -21,7 +21,6 @@ public class PlayerMovement : MonoBehaviour
     CapsuleCollider2D myCollider;
     BoxCollider2D feetCollider;
     InputManager inputManager;
-    bool canJump = false;
     bool isAlive = true;
 
     void Start()
@@ -44,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Die()
     {
-        if (myCollider.IsTouchingLayers(LayerMask.GetMask("Enemies")) || feetCollider.IsTouchingLayers(LayerMask.GetMask("Enemies")))
+        if (myCollider.IsTouchingLayers(LayerMask.GetMask("Enemies")))
         {
             isAlive = false;
             myAnimator.SetTrigger("Dead");
@@ -53,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(NewGame());
         }
 
-        if (myCollider.IsTouchingLayers(LayerMask.GetMask("Water")) || feetCollider.IsTouchingLayers(LayerMask.GetMask("Enemies")))
+        if (myCollider.IsTouchingLayers(LayerMask.GetMask("Water")))
         {
             isAlive = false;
             myAnimator.SetTrigger("Fall");
@@ -114,16 +113,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.tag == "Platform")
         {
-            canJump = true;
             myAnimator.SetBool("isJumping", false);
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D other)
-    {
-        if (other.gameObject.tag == "Platform")
-        {
-            canJump = false;
         }
     }
 

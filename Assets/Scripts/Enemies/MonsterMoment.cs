@@ -25,7 +25,5 @@ public class EnemyMoment : MonoBehaviour
     {
         moveSpeed = -moveSpeed;
         transform.localScale = new Vector2(-transform.localScale.x, 1f);
-
-        Debug.Log(other.gameObject.tag);
     }
 }
