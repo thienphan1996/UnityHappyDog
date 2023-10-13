@@ -182,8 +182,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79623a3b650bb4745943284e0a4291df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
-  jumpSpeed: 20
+  moveSpeed: 6
+  jumpSpeed: 18
   deadKick: {x: 10, y: 10}
   jumpSfx: {fileID: 8300000, guid: e5916fbc63e7c4443abd412cb3bd6e2a, type: 3}
   playerDiedSfx: {fileID: 8300000, guid: 38c9d812f3d774f5699f294d0f83df1b, type: 3}
