@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Platform
   - Coin
+  - Enemies
   layers:
   - Default
   - TransparentFX
@@ -49,7 +50,7 @@ TagManager:
   - name: Enviroment
     uniqueID: 2139114095
     locked: 0
-  - name: Tilemap
+  - name: Platform
     uniqueID: 449093027
     locked: 0
   - name: Water

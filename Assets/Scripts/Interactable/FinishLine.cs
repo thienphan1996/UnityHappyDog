@@ -22,6 +22,7 @@ public class FinishLine : MonoBehaviour
         AudioSource.PlayClipAtPoint(finishSfx, Camera.main.transform.position);
 
         yield return new WaitForSecondsRealtime(delayLoadScene);
+
         var nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
 
         if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)

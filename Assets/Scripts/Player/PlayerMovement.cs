@@ -16,12 +16,18 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] AudioClip gameOverSfx;
 
     Vector2 inputValue;
+    Vector2 extraInput;
     Rigidbody2D myRigidbody;
     Animator myAnimator;
     CapsuleCollider2D myCollider;
     BoxCollider2D feetCollider;
     InputManager inputManager;
     bool isAlive = true;
+
+    public void UpdateExtraInput(Vector2 value)
+    {
+        extraInput = value;
+    }
 
     void Start()
     {
@@ -43,14 +49,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Die()
     {
-        if (myCollider.IsTouchingLayers(LayerMask.GetMask("Enemies")))
-        {
-            isAlive = false;
-            myAnimator.SetTrigger("Dead");
-            myRigidbody.velocity = deadKick;
-
-            StartCoroutine(NewGame());
-        }
+        if (!isAlive) { return; }
 
         if (myCollider.IsTouchingLayers(LayerMask.GetMask("Water")))
         {
@@ -61,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(NewGame());
         }
     }
+
     IEnumerator NewGame()
     {
         var playerSession = FindObjectOfType<PlayerSession>();
@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(gameOverSfx, Camera.main.transform.position);
 
-            yield return new WaitForSecondsRealtime(2f);
+            yield return new WaitForSecondsRealtime(1f);
             playerSession.RestartGame();
             SceneManager.LoadScene(0);
         }
@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(playerDiedSfx, Camera.main.transform.position);
 
-            yield return new WaitForSecondsRealtime(2f);
+            yield return new WaitForSecondsRealtime(1f);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
@@ -98,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
     {
         inputValue = inputManager.MoveInput.normalized;
 
-        var playerVelocity = new Vector2(inputValue.x * moveSpeed, myRigidbody.velocity.y);
+        var playerVelocity = new Vector2(inputValue.x * moveSpeed + extraInput.x, myRigidbody.velocity.y);
         myRigidbody.velocity = playerVelocity;
 
         myAnimator.SetBool("isRuning", hasHorizontalSpeed());
@@ -112,6 +112,21 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         myAnimator.SetBool("isJumping", false);
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Enemies"))
+        {
+            var enemiesMovement = other.gameObject.GetComponent<EnemyMoment>();
+            if (enemiesMovement != null && enemiesMovement.IsDied) { return; }
+
+            isAlive = false;
+            myAnimator.SetTrigger("Dead");
+            myRigidbody.velocity = deadKick;
+
+            StartCoroutine(NewGame());
+        }
     }
 
     void Jump()

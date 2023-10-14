@@ -184,7 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 6
   jumpSpeed: 18
-  deadKick: {x: 10, y: 10}
+  deadKick: {x: -10, y: 10}
   jumpSfx: {fileID: 8300000, guid: e5916fbc63e7c4443abd412cb3bd6e2a, type: 3}
   playerDiedSfx: {fileID: 8300000, guid: 38c9d812f3d774f5699f294d0f83df1b, type: 3}
   gameOverSfx: {fileID: 8300000, guid: b668216871e694c2f9bb965f86b2faf9, type: 3}
@@ -209,7 +209,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 1684555785978885495}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: f8503cd88524d4326b1071e595e4a462, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -232,8 +232,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.09751606, y: -0.11980909}
-  m_Size: {x: 0.9626999, y: 1.458866}
+  m_Offset: {x: -0.09751606, y: -0.10412109}
+  m_Size: {x: 0.9626999, y: 1.42749}
   m_Direction: 0
 --- !u!82 &5478335526963863137
 AudioSource:
@@ -255,7 +255,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.8278346
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -363,7 +363,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.06488752, y: -0.8028751}
+  m_Offset: {x: -0.06174183, y: -0.86829966}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -374,5 +374,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.48904896, y: 0.0895375}
+  m_Size: {x: 0.46924782, y: 0.07936871}
   m_EdgeRadius: 0
