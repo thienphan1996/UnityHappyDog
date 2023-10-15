@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class MoveableGround : MonoBehaviour
 {
-
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] float length = 10f;
 

@@ -74,6 +74,11 @@ public class PlayerSession : MonoBehaviour
     {
         Destroy(gameObject);
 
-        FindObjectOfType<ScenePersist>().ResetScene();
+        var scenePersist = FindObjectOfType<ScenePersist>();
+
+        if (scenePersist != null)
+        {
+            scenePersist.ResetScene();
+        }
     }
 }

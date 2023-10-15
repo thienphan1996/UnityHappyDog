@@ -20,7 +20,7 @@ TagManager:
   - Platform
   - Enemies
   - Interactables
-  - 
+  - Plarform Enemies
   - 
   - 
   - 
@@ -55,6 +55,9 @@ TagManager:
     locked: 0
   - name: Water
     uniqueID: 4249885833
+    locked: 0
+  - name: Platform Enemies
+    uniqueID: 657808063
     locked: 0
   - name: Interactables
     uniqueID: 389708167

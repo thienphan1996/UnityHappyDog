@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isAlive) { return; }
 
-        if (myCollider.IsTouchingLayers(LayerMask.GetMask("Water")))
+        if (myCollider.IsTouchingLayers(LayerMask.GetMask("Water")) || myCollider.IsTouchingLayers(LayerMask.GetMask("Plarform Enemies")))
         {
             isAlive = false;
             myAnimator.SetTrigger("Fall");
@@ -98,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
     {
         inputValue = inputManager.MoveInput.normalized;
 
-        var playerVelocity = new Vector2(inputValue.x * moveSpeed + extraInput.x, myRigidbody.velocity.y);
+        var playerVelocity = new Vector2(inputValue.x * moveSpeed + extraInput.x, myRigidbody.velocity.y + extraInput.y);
         myRigidbody.velocity = playerVelocity;
 
         myAnimator.SetBool("isRuning", hasHorizontalSpeed());
