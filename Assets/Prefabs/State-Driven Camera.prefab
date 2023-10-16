@@ -93,7 +93,7 @@ MonoBehaviour:
   m_YDamping: 1
   m_ZDamping: 1
   m_TargetMovementOnly: 1
-  m_ScreenX: 0.7
+  m_ScreenX: 0.65
   m_ScreenY: 0.6
   m_CameraDistance: 10
   m_DeadZoneWidth: 0
@@ -299,7 +299,7 @@ MonoBehaviour:
   m_YDamping: 1
   m_ZDamping: 1
   m_TargetMovementOnly: 1
-  m_ScreenX: 0.3
+  m_ScreenX: 0.35
   m_ScreenY: 0.6
   m_CameraDistance: 10
   m_DeadZoneWidth: 0
@@ -597,21 +597,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   m_CustomBlends: {fileID: 11400000, guid: 25fff3e84cd75423e8b0681829f6054b, type: 2}
-  m_ParentHash:
-  - m_Hash: 1572886794
-    m_ParentHash: 756556552
-  - m_Hash: 788460410
-    m_ParentHash: 756556552
-  - m_Hash: 1684585544
-    m_ParentHash: 756556552
-  - m_Hash: 1914514016
-    m_ParentHash: 756556552
-  - m_Hash: 778408736
-    m_ParentHash: 756556552
-  - m_Hash: -862339390
-    m_ParentHash: 756556552
-  - m_Hash: 334417006
-    m_ParentHash: 756556552
+  m_ParentHash: []
 --- !u!1 &8149583422715013929
 GameObject:
   m_ObjectHideFlags: 0
@@ -705,7 +691,7 @@ MonoBehaviour:
   m_YDamping: 1
   m_ZDamping: 1
   m_TargetMovementOnly: 1
-  m_ScreenX: 0.3
+  m_ScreenX: 0.35
   m_ScreenY: 0.6
   m_CameraDistance: 10
   m_DeadZoneWidth: 0
@@ -821,7 +807,7 @@ MonoBehaviour:
   m_YDamping: 1
   m_ZDamping: 1
   m_TargetMovementOnly: 1
-  m_ScreenX: 0.7
+  m_ScreenX: 0.65
   m_ScreenY: 0.6
   m_CameraDistance: 10
   m_DeadZoneWidth: 0
