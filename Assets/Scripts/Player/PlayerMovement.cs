@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -22,7 +23,9 @@ public class PlayerMovement : MonoBehaviour
     CapsuleCollider2D myCollider;
     BoxCollider2D feetCollider;
     InputManager inputManager;
+    CinemachineVirtualCamera vcam;
     bool isAlive = true;
+    float previousInputValue;
 
     public void UpdateExtraInput(Vector2 value)
     {
@@ -36,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
         myCollider = GetComponent<CapsuleCollider2D>();
         inputManager = GetComponent<InputManager>();
         feetCollider = GetComponent<BoxCollider2D>();
+        vcam = GetComponent<CinemachineVirtualCamera>();
     }
 
     void Update()
@@ -101,7 +105,17 @@ public class PlayerMovement : MonoBehaviour
         var playerVelocity = new Vector2(inputValue.x * moveSpeed + extraInput.x, myRigidbody.velocity.y + extraInput.y);
         myRigidbody.velocity = playerVelocity;
 
-        myAnimator.SetBool("isRuning", hasHorizontalSpeed());
+        myAnimator.SetBool("isRuningLeft", hasHorizontalSpeed() && inputValue.x < 0);
+        myAnimator.SetBool("isRuningRight", hasHorizontalSpeed() && inputValue.x > 0);
+
+        if (hasHorizontalSpeed())
+        {
+            previousInputValue = inputValue.x;
+        }
+        else
+        {
+            myAnimator.SetInteger("IdleState", previousInputValue > 0 ? 1 : 0);
+        }
 
         if (inputManager.IsJumping)
         {
