@@ -21,7 +21,7 @@ TagManager:
   - Enemies
   - Interactables
   - Plarform Enemies
-  - 
+  - Bullet
   - 
   - 
   - 
@@ -64,6 +64,9 @@ TagManager:
     locked: 0
   - name: Enemies
     uniqueID: 3390330727
+    locked: 0
+  - name: Bullet
+    uniqueID: 3781474061
     locked: 0
   - name: Player
     uniqueID: 1145192429

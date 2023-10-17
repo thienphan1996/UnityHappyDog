@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] AudioClip jumpSfx;
     [SerializeField] AudioClip playerDiedSfx;
     [SerializeField] AudioClip gameOverSfx;
+    [SerializeField] GameObject bullet;
+    [SerializeField] Transform gun;
 
     Vector2 inputValue;
     Vector2 extraInput;
@@ -49,6 +51,15 @@ public class PlayerMovement : MonoBehaviour
         Run();
         FlipSprite();
         Die();
+        Fire();
+    }
+
+    private void Fire()
+    {
+        if (inputManager.IsFire)
+        {
+            Instantiate(bullet, gun.position, transform.rotation);
+        }
     }
 
     private void Die()

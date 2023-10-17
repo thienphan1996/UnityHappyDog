@@ -33769,7 +33769,7 @@ Transform:
   m_GameObject: {fileID: 1602696621}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.0775506, y: 19.813179, z: -3.1414747}
+  m_LocalPosition: {x: 2.077655, y: 19.80061, z: -3.1414747}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -38052,7 +38052,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 676895958289565669, guid: d39f7f7168c50425385737f84c6053e7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.9669857
+      value: -5.233652
       objectReference: {fileID: 0}
     - target: {fileID: 813194099551467273, guid: d39f7f7168c50425385737f84c6053e7, type: 3}
       propertyPath: m_AnimatedTarget
@@ -38072,7 +38072,7 @@ PrefabInstance:
       objectReference: {fileID: 1814347572}
     - target: {fileID: 2875232290905307940, guid: d39f7f7168c50425385737f84c6053e7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.466987
+      value: -14.983651
       objectReference: {fileID: 0}
     - target: {fileID: 3368148937050681242, guid: d39f7f7168c50425385737f84c6053e7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -38136,7 +38136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6089362311095182226, guid: d39f7f7168c50425385737f84c6053e7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.90032
+      value: -15.633652
       objectReference: {fileID: 0}
     - target: {fileID: 7376947765286545349, guid: d39f7f7168c50425385737f84c6053e7, type: 3}
       propertyPath: m_BoundingShape2D
@@ -38144,7 +38144,7 @@ PrefabInstance:
       objectReference: {fileID: 818141869}
     - target: {fileID: 8106952242851611194, guid: d39f7f7168c50425385737f84c6053e7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.400319
+      value: -5.8836527
       objectReference: {fileID: 0}
     - target: {fileID: 8294257069581755904, guid: d39f7f7168c50425385737f84c6053e7, type: 3}
       propertyPath: m_BoundingShape2D

@@ -591,7 +591,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -616,7 +616,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.4040084, y: 1.5461079, z: -10}
+  m_LocalPosition: {x: 4.229433, y: 1.3307384, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1358,40 +1358,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 813194099551467273, guid: d39f7f7168c50425385737f84c6053e7, type: 3}
       propertyPath: m_Instructions.Array.data[0].m_FullHash
-      value: 0
+      value: 1432961145
       objectReference: {fileID: 0}
     - target: {fileID: 813194099551467273, guid: d39f7f7168c50425385737f84c6053e7, type: 3}
       propertyPath: m_Instructions.Array.data[1].m_FullHash
-      value: 1572886794
-      objectReference: {fileID: 0}
-    - target: {fileID: 813194099551467273, guid: d39f7f7168c50425385737f84c6053e7, type: 3}
-      propertyPath: m_Instructions.Array.data[2].m_FullHash
-      value: 334417006
-      objectReference: {fileID: 0}
-    - target: {fileID: 813194099551467273, guid: d39f7f7168c50425385737f84c6053e7, type: 3}
-      propertyPath: m_Instructions.Array.data[3].m_FullHash
       value: 778408736
       objectReference: {fileID: 0}
     - target: {fileID: 813194099551467273, guid: d39f7f7168c50425385737f84c6053e7, type: 3}
-      propertyPath: m_Instructions.Array.data[4].m_FullHash
+      propertyPath: m_Instructions.Array.data[2].m_FullHash
       value: -862339390
+      objectReference: {fileID: 0}
+    - target: {fileID: 813194099551467273, guid: d39f7f7168c50425385737f84c6053e7, type: 3}
+      propertyPath: m_Instructions.Array.data[3].m_FullHash
+      value: 334417006
+      objectReference: {fileID: 0}
+    - target: {fileID: 813194099551467273, guid: d39f7f7168c50425385737f84c6053e7, type: 3}
+      propertyPath: m_Instructions.Array.data[4].m_FullHash
+      value: 1572886794
       objectReference: {fileID: 0}
     - target: {fileID: 813194099551467273, guid: d39f7f7168c50425385737f84c6053e7, type: 3}
       propertyPath: m_Instructions.Array.data[1].m_VirtualCamera
       value: 
-      objectReference: {fileID: 20419342}
+      objectReference: {fileID: 1452921399}
     - target: {fileID: 813194099551467273, guid: d39f7f7168c50425385737f84c6053e7, type: 3}
       propertyPath: m_Instructions.Array.data[2].m_VirtualCamera
       value: 
-      objectReference: {fileID: 305415727}
+      objectReference: {fileID: 647413208}
     - target: {fileID: 813194099551467273, guid: d39f7f7168c50425385737f84c6053e7, type: 3}
       propertyPath: m_Instructions.Array.data[3].m_VirtualCamera
       value: 
-      objectReference: {fileID: 1452921399}
+      objectReference: {fileID: 305415727}
     - target: {fileID: 813194099551467273, guid: d39f7f7168c50425385737f84c6053e7, type: 3}
       propertyPath: m_Instructions.Array.data[4].m_VirtualCamera
       value: 
-      objectReference: {fileID: 647413208}
+      objectReference: {fileID: 20419342}
     - target: {fileID: 2182528379484983449, guid: d39f7f7168c50425385737f84c6053e7, type: 3}
       propertyPath: m_Follow
       value: 
@@ -9810,14 +9810,6 @@ PrefabInstance:
     - target: {fileID: 344168843137015785, guid: a783a192a31c64e60a3e3deac96c96db, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1423126455660047582, guid: a783a192a31c64e60a3e3deac96c96db, type: 3}
-      propertyPath: jumpSpeed
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 1423126455660047582, guid: a783a192a31c64e60a3e3deac96c96db, type: 3}
-      propertyPath: moveSpeed
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1684555785978885495, guid: a783a192a31c64e60a3e3deac96c96db, type: 3}
       propertyPath: m_Name
