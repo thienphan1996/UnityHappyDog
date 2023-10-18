@@ -19,8 +19,6 @@ public class Bullet : MonoBehaviour
         {
             xSpeed = playerMovement.transform.localScale.x * moveSpeed;
             transform.Rotate(new Vector3(0f, 0f, playerMovement.transform.localScale.x * -90));
-
-            GetComponent<AudioSource>().Play();
         }
     }
 
@@ -38,9 +36,16 @@ public class Bullet : MonoBehaviour
 
         if (other.CompareTag("Enemies"))
         {
-            Destroy(other.gameObject);
+            other.GetComponent<EnemyMoment>().DestroyWithForce(new Vector2(xSpeed * 30f, 100f));
         }
 
         Destroy(gameObject);
+    }
+
+    IEnumerator DestroyEnemy(GameObject enemy)
+    {
+        yield return new WaitForSecondsRealtime(1);
+
+        Destroy(enemy);
     }
 }

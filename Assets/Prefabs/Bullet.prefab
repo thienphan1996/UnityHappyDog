@@ -147,8 +147,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.31428573, y: 0.34285715}
+  m_Offset: {x: 0.00060495734, y: 0.004849365}
+  m_Size: {x: 0.04340167, y: 0.53440714}
   m_Direction: 0
 --- !u!114 &7372320207990046050
 MonoBehaviour:
@@ -163,7 +163,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  laserSfx: {fileID: 8300000, guid: c3e7b44ee31e64d7fa34b81ec52c4c4c, type: 3}
 --- !u!82 &1313837729819654800
 AudioSource:
   m_ObjectHideFlags: 0

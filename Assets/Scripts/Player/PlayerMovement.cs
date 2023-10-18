@@ -1,11 +1,7 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using Cinemachine;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -17,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] AudioClip gameOverSfx;
     [SerializeField] GameObject bullet;
     [SerializeField] Transform gun;
+    [SerializeField] Image actionImageButton;
 
     Vector2 inputValue;
     Vector2 extraInput;
@@ -25,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     CapsuleCollider2D myCollider;
     BoxCollider2D feetCollider;
     InputManager inputManager;
-    CinemachineVirtualCamera vcam;
+    VerticalSwitch verticalSwitch;
     bool isAlive = true;
     float previousInputValue;
 
@@ -41,7 +38,8 @@ public class PlayerMovement : MonoBehaviour
         myCollider = GetComponent<CapsuleCollider2D>();
         inputManager = GetComponent<InputManager>();
         feetCollider = GetComponent<BoxCollider2D>();
-        vcam = GetComponent<CinemachineVirtualCamera>();
+
+        actionImageButton.enabled = false;
     }
 
     void Update()
@@ -52,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
         FlipSprite();
         Die();
         Fire();
+        OnActionImageButton();
     }
 
     private void Fire()
@@ -59,6 +58,21 @@ public class PlayerMovement : MonoBehaviour
         if (inputManager.IsFire)
         {
             Instantiate(bullet, gun.position, transform.rotation);
+        }
+    }
+
+    public void OnActionImageButton()
+    {
+        if (inputManager.IsActionButton)
+        {
+            if (verticalSwitch != null && !verticalSwitch.IsOn)
+            {
+                verticalSwitch.SwitchOn();
+            }
+            else
+            {
+                verticalSwitch.SwitchOff();
+            }
         }
     }
 
@@ -136,7 +150,24 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        myAnimator.SetBool("isJumping", false);
+        if (other.CompareTag("Platform"))
+        {
+            myAnimator.SetBool("isJumping", false);
+        }
+        if (other.CompareTag("Vertical Switch"))
+        {
+            verticalSwitch = other.GetComponent<VerticalSwitch>();
+
+            actionImageButton.enabled = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Vertical Switch"))
+        {
+            actionImageButton.enabled = false;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)

@@ -44,9 +44,9 @@ public class EnemyMoment : MonoBehaviour
         {
             isDied = true;
 
-            myRigidbody.AddForce(new Vector2(other.gameObject.transform.localScale.x * 200f, 50f));
-
             myMainCollider.enabled = false;
+
+            myRigidbody.AddForce(new Vector2(other.gameObject.transform.localScale.x * 200f, 50f));
 
             transform.Rotate(new Vector3(0, 0, UnityEngine.Random.Range(-270, -90)));
 
@@ -54,6 +54,15 @@ public class EnemyMoment : MonoBehaviour
 
             StartCoroutine(Death());
         }
+    }
+
+    public void DestroyWithForce(Vector2 force)
+    {
+        isDied = true;
+
+        myRigidbody.AddForce(force);
+
+        StartCoroutine(Death());
     }
 
     private IEnumerator Death()

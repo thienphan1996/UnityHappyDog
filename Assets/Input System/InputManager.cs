@@ -14,6 +14,9 @@ public class InputManager : MonoBehaviour
     private bool isFire;
     public bool IsFire => isFire;
 
+    private bool isActionButton;
+    public bool IsActionButton => isActionButton;
+
     private void Awake() => playerActionMap = new PlayerActionMap();
     private void OnEnable() => playerActionMap.Enable();
     private void OnDisable() => playerActionMap.Disable();
@@ -25,5 +28,7 @@ public class InputManager : MonoBehaviour
         isJumping = playerActionMap.Player.Jump.triggered;
 
         isFire = playerActionMap.Player.Fire.triggered;
+
+        isActionButton = playerActionMap.Player.ActionButton.triggered;
     }
 }
