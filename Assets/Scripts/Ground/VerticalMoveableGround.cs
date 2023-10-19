@@ -36,13 +36,27 @@ public class VerticalMoveableGround : MonoBehaviour
     {
         if (!autoMove)
         {
-            if (speed > 0 && transform.position.y > firstY + length)
+            if (moveSpeed > 0)
             {
-                speed = 0;
+                if (speed > 0 && transform.position.y > firstY + length)
+                {
+                    speed = 0;
+                }
+                if (speed < 0 && transform.position.y < firstY)
+                {
+                    speed = 0;
+                }
             }
-            if (speed < 0 && transform.position.y < firstY)
+            if (moveSpeed < 0)
             {
-                speed = 0;
+                if (speed < 0 && transform.position.y < firstY - length)
+                {
+                    speed = 0;
+                }
+                if (speed > 0 && transform.position.y > firstY)
+                {
+                    speed = 0;
+                }
             }
         }
         else

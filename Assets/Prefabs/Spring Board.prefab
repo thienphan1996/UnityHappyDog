@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpSpeed: 20
+  jumpSfx: {fileID: 8300000, guid: e5916fbc63e7c4443abd412cb3bd6e2a, type: 3}
 --- !u!61 &5881016050561748656
 BoxCollider2D:
   m_ObjectHideFlags: 0
