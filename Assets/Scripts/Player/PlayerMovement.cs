@@ -82,12 +82,19 @@ public class PlayerMovement : MonoBehaviour
 
         if (myCollider.IsTouchingLayers(LayerMask.GetMask("Water")) || myCollider.IsTouchingLayers(LayerMask.GetMask("Plarform Enemies")))
         {
-            isAlive = false;
-            myAnimator.SetTrigger("Fall");
-            myRigidbody.velocity = deadKick;
-
-            StartCoroutine(NewGame());
+            Dead();
         }
+    }
+
+    public void Dead()
+    {
+        if (!isAlive) { return; }
+
+        myAnimator.SetTrigger("Fall");
+        myRigidbody.velocity = deadKick;
+        isAlive = false;
+
+        StartCoroutine(NewGame());
     }
 
     IEnumerator NewGame()
@@ -174,7 +181,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemies"))
         {
-            var enemiesMovement = other.gameObject.GetComponent<EnemyMoment>();
+            var enemiesMovement = other.gameObject.GetComponent<MonsterMoment>();
             if (enemiesMovement != null && enemiesMovement.IsDied) { return; }
 
             isAlive = false;

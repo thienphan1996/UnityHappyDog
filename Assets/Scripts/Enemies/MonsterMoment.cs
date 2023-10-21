@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class EnemyMoment : MonoBehaviour
+public class MonsterMoment : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 2f;
     [SerializeField] AudioClip punchClip;

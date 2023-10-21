@@ -191,6 +191,7 @@ MonoBehaviour:
   gameOverSfx: {fileID: 8300000, guid: b668216871e694c2f9bb965f86b2faf9, type: 3}
   bullet: {fileID: 4040085689466349929, guid: 3d2954932cfbd4697aaa3e4e5f1cc31f, type: 3}
   gun: {fileID: 8782392285001267922}
+  actionImageButton: {fileID: 0}
 --- !u!114 &9008988155295904919
 MonoBehaviour:
   m_ObjectHideFlags: 0

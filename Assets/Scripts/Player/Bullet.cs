@@ -36,7 +36,7 @@ public class Bullet : MonoBehaviour
 
         if (other.CompareTag("Enemies"))
         {
-            other.GetComponent<EnemyMoment>().DestroyWithForce(new Vector2(xSpeed * 30f, 100f));
+            other.GetComponent<MonsterMoment>().DestroyWithForce(new Vector2(xSpeed * 30f, 100f));
         }
 
         Destroy(gameObject);
