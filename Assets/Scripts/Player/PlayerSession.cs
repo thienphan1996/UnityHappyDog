@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerSession : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI livesText;
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI levelText;
+    [SerializeField] List<Image> liveImages;
+    [SerializeField] Sprite aliveSprite;
+    [SerializeField] Sprite deadSprite;
 
     private int score = 0;
     private int playerLives = 3;
@@ -43,9 +46,25 @@ public class PlayerSession : MonoBehaviour
 
     private void Start()
     {
-        livesText.text = playerLives.ToString();
+        SetLiveImages();
+
         scoreText.text = score.ToString();
         levelText.text = "Level " + playerLevel.ToString();
+    }
+
+    private void SetLiveImages()
+    {
+        for (var i = 0; i < liveImages.Count; i++)
+        {
+            if (i < playerLives)
+            {
+                liveImages[i].sprite = aliveSprite;
+            }
+            else
+            {
+                liveImages[i].sprite = deadSprite;
+            }
+        }
     }
 
     public void IncreaseScore(int scoreToAdd)
@@ -65,7 +84,7 @@ public class PlayerSession : MonoBehaviour
             playerLives = 0;
         }
 
-        livesText.text = playerLives.ToString();
+        SetLiveImages();
 
         return playerLives;
     }
