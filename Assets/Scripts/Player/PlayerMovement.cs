@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] AudioClip gameOverSfx;
     [SerializeField] GameObject bullet;
     [SerializeField] Transform gun;
-    [SerializeField] Image actionImageButton;
+    [SerializeField] GameObject actionImageButton;
 
     Vector2 inputValue;
     Vector2 extraInput;
@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
         inputManager = GetComponent<InputManager>();
         feetCollider = GetComponent<BoxCollider2D>();
 
-        actionImageButton.enabled = false;
+        actionImageButton.SetActive(false);
     }
 
     void Update()
@@ -165,7 +165,7 @@ public class PlayerMovement : MonoBehaviour
         {
             verticalSwitch = other.GetComponent<VerticalSwitch>();
 
-            actionImageButton.enabled = true;
+            actionImageButton.SetActive(true);
         }
     }
 
@@ -173,7 +173,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.CompareTag("Vertical Switch"))
         {
-            actionImageButton.enabled = false;
+            actionImageButton.SetActive(false);
         }
     }
 
