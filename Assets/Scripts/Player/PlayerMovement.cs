@@ -105,8 +105,12 @@ public class PlayerMovement : MonoBehaviour
             AudioSource.PlayClipAtPoint(gameOverSfx, Camera.main.transform.position);
 
             yield return new WaitForSecondsRealtime(1f);
+
+            myRigidbody.velocity = new Vector2(0f, 0f);
             playerSession.RestartGame();
-            SceneManager.LoadScene(0);
+
+            yield return new WaitForSecondsRealtime(1f);
+            SceneManager.LoadScene("Game Over");
         }
         else
         {

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerSession : MonoBehaviour
@@ -41,7 +42,12 @@ public class PlayerSession : MonoBehaviour
 
         levelText.text = "Level " + playerLevel.ToString();
 
-        FindObjectOfType<ScenePersist>().ResetScene();
+        var scenPersist = FindObjectOfType<ScenePersist>();
+
+        if (scenPersist != null)
+        {
+            scenPersist.ResetScene();
+        }
     }
 
     private void Start()
@@ -65,6 +71,29 @@ public class PlayerSession : MonoBehaviour
                 liveImages[i].sprite = deadSprite;
             }
         }
+    }
+
+    public void GameOverResume()
+    {
+        if (playerLives == 0)
+        {
+            playerLives = 1;
+
+            SetLiveImages();
+        }
+
+        SceneManager.LoadScene(playerLevel);
+    }
+
+    public void GameOverNext()
+    {
+        playerLives = 3;
+        playerLevel++;
+
+        SetLiveImages();
+        UpdateLevel(playerLevel);
+
+        SceneManager.LoadScene(playerLevel);
     }
 
     public void IncreaseScore(int scoreToAdd)
@@ -91,8 +120,6 @@ public class PlayerSession : MonoBehaviour
 
     public void RestartGame()
     {
-        Destroy(gameObject);
-
         var scenePersist = FindObjectOfType<ScenePersist>();
 
         if (scenePersist != null)
